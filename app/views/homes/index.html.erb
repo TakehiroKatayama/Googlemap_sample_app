@@ -1,3 +1,21 @@
 <h1>Homes#index</h1>
 <p>スカイツリーの行き方</p>
 <%= link_to "行き方を調べる","https://goo.gl/maps/fcwYy3KJjau6dYvp7"%>
+<div id="map"></div>
+<script>
+  let map
+  
+  function initMap(){
+  
+    map = new google.maps.Map(document.getElementById('map'), {
+      center: {lat: 35.71009953773366, lng:139.81071364906916},
+      zoom: 17,
+    });
+  
+    marker = new google.maps.Marker({
+      position:  {lat: 35.71009953773366, lng:139.81071364906916},
+      map: map
+    });
+  }
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=ENV['GOOGLEMAP_API_KEY']&callback=initMap" async defer></script>
